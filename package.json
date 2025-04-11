@@ -1,0 +1,12 @@
+{
+  "name": "chess-modified-version-main",
+  "version": "1.0.0",
+  "description": "\"# chess-multiplayer\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

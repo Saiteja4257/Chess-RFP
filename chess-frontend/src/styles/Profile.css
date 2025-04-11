@@ -1,0 +1,76 @@
+/* Main container styling */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1e1e1e;
+    padding: 16px;
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  /* Card layout */
+  .profile-card {
+    background-color: #2e2e2e;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    /* max-width: 400px; */
+    font-size:27px;
+    width: 500px;
+    height: 500px;
+  }
+  
+  /* Title */
+  .profile-title {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: #ffdd57;
+    margin-bottom: 16px;
+  }
+  
+  /* Section titles */
+  .profile-subtitle {
+    font-size: 25px;
+    font-weight: 600;
+    color: #4aff8a;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Labels and text */
+  .profile-label {
+    font-weight: 600;
+    color: #6ac5ff;
+  }
+  
+  .profile-stat-label {
+    font-weight: 500;
+    color: #dddddd;
+  }
+  
+  /* Divider */
+  .profile-divider {
+    margin: 16px 0;
+    border: 0;
+    border-top: 1px solid #444;
+  }
+  
+  /* Messages */
+  .profile-message {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .profile-message.error {
+    color: #ff4d4f;
+  }
+  
+  .profile-message.loading {
+    color: #cccccc;
+  }
+  

@@ -1,0 +1,79 @@
+.choose-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, #1f1d1b, #2d2a28);   padding: 2em;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow:auto;
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .choose-title {
+    font-size: 4em;
+    margin-bottom: 0.3em;
+    margin-left: 60px;;
+    color: #88d46c;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .button-wrapper {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    /* background-color: rgba(35, 34, 34, 0.85); */
+    border-radius: 1.5em;
+    border: none;
+    gap:3em;
+    /* padding: 3em; */
+    height:440px;
+    width:900px;
+    max-width: 1000px;
+    /* box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.15),
+                0 12px 24px rgba(0, 0, 0, 0.5); */
+    position: relative;
+    animation: fadeInUp 0.6s ease-out;
+    /* gap: 2rem; */
+  }
+  .option{
+    font-size: 2.0em;
+    margin-bottom: 0.3em;
+    background-color: #4f46e5;
+    border-radius: 1em;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.15),
+                0 12px 24px rgba(0, 0, 0, 0.5);
+  }
+  .game-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .game-button:hover {
+    transform: scale(1.05);
+  }
+  
+  .game-button img {
+    width:350px;
+  max-width: 400px;
+  height:300px;
+  border-radius: 3em;
+  object-fit:fill;
+  display: block; 
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease;
+  }
+  

@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+/* Full screen gradient background */
+.dashboard-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #1f1d1b, #2d2a28);  padding: 2em;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow:auto;
+}
+.chessimage{
+  width: 500px;
+    height: 500px;  
+    margin-left: 30px;
+    border-radius: 20px;
+}
+/* Card container */
+.dashboard-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap:20px;
+  padding: 20px;
+}
+
+/* Floating glass card */
+.dashboard-card {
+  /* width: 100%;
+  max-width: 500px; */
+  
+  padding: 40px 30px;
+  /* background-color: var(--theme-background-color, #312e2b); */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: none;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); */
+  text-align: center;
+  color: #ffffff;
+  width: 600px;
+  height: 500px;
+  animation: floatIn 1s ease forwards;
+}
+
+/* Floating card animation */
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Welcome message */
+.dashboard-welcome {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Sub message */
+.dashboard-message {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #f0f0f0cc;
+  margin-bottom: 30px;
+}
+
+/* Buttons container */
+.dashboard-buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Base button style */
+.dashboard-button {
+  padding: 16px 20px;
+  /* background: linear-gradient(145deg, #ff4b2b, #ff416c); */
+  background-color: #6faf4f;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 27px;
+  font-weight: 600;
+  width: 240px;
+  height: 90px;
+  cursor: pointer;
+  box-shadow:
+    inset 0 -4px 0 rgba(0, 0, 0, 0.15),
+    0 8px 20px rgba(7, 7, 7, 0.4);
+  transition: all 0.2s ease-in-out;
+  backdrop-filter: blur(4px);
+  opacity: 0; 
+  animation-fill-mode: forwards;
+}
+
+
+/* Hover effect */
+.dashboard-button:hover {
+  transform: scale(1.2);
+  /* box-shadow:
+    inset 0 -4px 0 rgba(0, 0, 0, 0.15),
+    0 12px 24px rgba(8, 8, 8, 0.6); */
+}
+
+.dashboard-button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow:
+    inset 0 4px 6px rgba(0, 0, 0, 0.25),
+    0 4px 8px rgba(22, 22, 21, 0.3);
+}
+
+/* Button animations */
+.dashboard-button.left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+.dashboard-button.right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+.dashboard-button.left,
+.dashboard-button.right {
+  animation-fill-mode: forwards;
+}
+/* Stagger animation delays */
+.dashboard-button:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.dashboard-button:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.dashboard-button:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 900px) {
+  .dashboard-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .dashboard-card {
+    width: 90%;
+    height: auto;
+    padding: 30px 20px;
+  }
+
+  .chessimage {
+    width: 90%;
+    height: auto;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .dashboard-button {
+    width: 90%;
+    height: 70px;
+    font-size: 22px;
+  }
+
+  .dashboard-welcome {
+    font-size: 2rem;
+  }
+
+  .dashboard-message {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-button {
+    font-size: 20px;
+    height: 60px;
+  }
+
+  .dashboard-welcome {
+    font-size: 1.8rem;
+  }
+
+  .dashboard-message {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-card {
+    padding: 20px 15px;
+  }
+
+  .dashboard-button {
+    font-size: 18px;
+    height: 55px;
+  }
+
+  .dashboard-welcome {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-message {
+    font-size: 0.9rem;
+  }
+}
+
+/* Slide animations */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
