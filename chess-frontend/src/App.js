@@ -112,7 +112,7 @@ const HomePage = () => {
           </p>
           <button className="start-button" onClick={handleStart}>Let's Go</button>
           </div>
-          <img className="ck" src="/chessKingdom2.png"></img>
+          <img className="ck" src="/chessKingdom2.png" alt="Image"></img>
         </div>
       </div>
     );

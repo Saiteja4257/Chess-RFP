@@ -51,7 +51,7 @@ const Login = () => {
             </form><br></br>
             <p  className="login-footer">Don't have an account? <Link className="login-link" to="/register">Register here</Link></p>
             </div>
-            <img className="lck" src="/kingdom2.png"></img>
+            <img className="lck" src="/kingdom2.png" alt="Image"></img>
         </div>
     );
 };
