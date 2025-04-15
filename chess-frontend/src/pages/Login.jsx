@@ -22,7 +22,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:5000/login", formData);
+            const res = await axios.post("https://chess-rfp-41oy.onrender.com/login", formData);
     
             // Store token, userId, and username in localStorage
             localStorage.setItem("token", res.data.token);

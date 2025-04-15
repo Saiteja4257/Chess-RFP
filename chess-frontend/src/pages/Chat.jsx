@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import "../styles/chat.css";
 // ✅ Initialize socket only once
-const socket = io("http://localhost:5000", {
+const socket = io("https://chess-rfp-41oy.onrender.com", {
   autoConnect: false,
 });
 
@@ -32,7 +32,7 @@ const Chat = () => {
     }
 
     // ✅ Fetch users on load
-    axios.get("http://localhost:5000/api/users")
+    axios.get("https://chess-rfp-41oy.onrender.com/api/users")
       .then((res) => {
         setUsers(res.data);
         console.log("✅ Users fetched:", res.data);
@@ -72,7 +72,7 @@ const Chat = () => {
   // ✅ Fetch chat history when selectedUser changes
   useEffect(() => {
     if (selectedUser && userId) {
-      axios.get(`http://localhost:5000/api/messages/${userId}/${selectedUser}`)
+      axios.get(`https://chess-rfp-41oy.onrender.com/api/messages/${userId}/${selectedUser}`)
         .then((res) => {
           setMessages(res.data);
           console.log("📜 Chat history loaded:", res.data);
@@ -94,7 +94,7 @@ const Chat = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:5000/api/messages", newMessage);
+      const response = await axios.post("https://chess-rfp-41oy.onrender.com/api/messages", newMessage);
       console.log("✅ Message saved:", response.data);
 
       socket.emit("sendMessage", newMessage);

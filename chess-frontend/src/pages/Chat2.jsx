@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import "./Chat2.css";
 
-const socket = io("http://localhost:5000", { autoConnect: false });
+const socket = io("https://chess-rfp-41oy.onrender.com", { autoConnect: false });
 
 const Chat = () => {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const Chat = () => {
       socket.emit("joinChat", userId);
     }
 
-    axios.get("http://localhost:5000/api/users")
+    axios.get("https://chess-rfp-41oy.onrender.com/api/users")
       .then((res) => setUsers(res.data))
       .catch((err) => console.error("Error fetching users:", err));
 
@@ -60,7 +60,7 @@ const Chat = () => {
 
   useEffect(() => {
     if (selectedUser && userId) {
-      axios.get(`http://localhost:5000/api/messages/${userId}/${selectedUser}`)
+      axios.get(`https://chess-rfp-41oy.onrender.com/api/messages/${userId}/${selectedUser}`)
         .then((res) => setMessages(res.data))
         .catch((err) => console.error("Error fetching chat history:", err));
     }
@@ -79,7 +79,7 @@ const Chat = () => {
     };
 
     try {
-      await axios.post("http://localhost:5000/api/messages", newMessage);
+      await axios.post("https://chess-rfp-41oy.onrender.com/api/messages", newMessage);
       socket.emit("sendMessage", newMessage);
       setMessages((prev) => [...prev, newMessage]);
       setMessage("");

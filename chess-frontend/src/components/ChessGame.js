@@ -8,7 +8,7 @@ import Chat from "../pages/Chat.jsx";
 import "../styles/chat.css";
 import Sidebar from "../pages/Sidebar.jsx";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://chess-rfp-41oy.onrender.com");
 
 const ChessGame = () => {
     const [game, setGame] = useState(new Chess());

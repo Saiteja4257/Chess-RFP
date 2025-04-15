@@ -21,7 +21,7 @@ const Profile = () => {
         const fetchStats = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const res = await axios.get(`http://localhost:5000/api/profile/${userId}`, {
+                const res = await axios.get(`https://chess-rfp-41oy.onrender.com/api/profile/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
