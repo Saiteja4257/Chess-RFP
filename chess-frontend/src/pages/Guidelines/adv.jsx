@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./styles2.css"; // Make sure styles1.css is in your project
 

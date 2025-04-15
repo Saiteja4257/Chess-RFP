@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Peer from "peerjs";
 import '../styles/video.css'; // newly added
 
-const VideoChat = ({ room }) => {
+const VideoChat = () => {
     const [peerId, setPeerId] = useState("");
     const [remotePeerId, setRemotePeerId] = useState("");
     const [showVideo, setShowVideo] = useState(false); // newly added

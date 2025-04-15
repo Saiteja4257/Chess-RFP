@@ -1,4 +1,4 @@
-import React, { useEffect, useState, lazy, Suspense } from "react";
+import React, { useEffect, useState} from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import "./GameOver.css";
 
@@ -8,7 +8,7 @@ const GameOver = () => {
   const [searchParams] = useSearchParams();
   const winner = searchParams.get("winner");
   const navigate = useNavigate(); 
-  const [windowSize, setWindowSize] = useState({
+  const [setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });

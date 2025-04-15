@@ -14,7 +14,7 @@ const ChessGame = () => {
     const [game, setGame] = useState(new Chess());
     const [room, setRoom] = useState("");
     const [playerColor, setPlayerColor] = useState(null);
-    const username = localStorage.getItem("username");
+    // const username = localStorage.getItem("username");
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "auto" });

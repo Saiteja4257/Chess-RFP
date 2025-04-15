@@ -11,7 +11,7 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
-  const [userId, setUserId] = useState(localStorage.getItem("userId") || "");
+  const [userId] = useState(localStorage.getItem("userId") || "");
   const [selectedUser, setSelectedUser] = useState("");
   const bottomRef = useRef(null);
 
