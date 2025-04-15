@@ -110,7 +110,7 @@ const Tac = () => {
   return (
     <div className="t hide-scrollbar">
       <div className="main-container">
-      <div className="button-wrapper">
+      <div className="button-wrapper1">
          <Link to="/ChessGuidelines" className="tback-btn">
           Back to Menu
         </Link>

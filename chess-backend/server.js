@@ -61,6 +61,7 @@ io.on("connection", (socket) => {
     socket.on("joinGame", ({ room, userId, username }) => {
         socket.join(room);
     
+        // If game room doesn't exist yet, create it
         if (!games[room]) {
             games[room] = {
                 game: new Chess(),
@@ -70,17 +71,28 @@ io.on("connection", (socket) => {
         }
     
         const roomData = games[room];
+    
+        // ✅ Check if room already has 2 players
+        if (roomData.players.length >= 2) {
+            socket.emit("roomFull"); // Inform the client
+            return; // ❌ Don't proceed further
+        }
+    
+        // Assign color based on join order
         const assignedColor = roomData.players.length === 0 ? "w" : "b";
     
-        // roomData.players.push({ id: socket.id, userId, color: assignedColor });
+        // Add the player to room
         roomData.players.push({
             id: socket.id,
             userId,
-            username, // ✅ this line is new
+            username,
             color: assignedColor
         });
-
+    
+        // Send the assigned color to the joining player
         socket.emit("assignColor", assignedColor);
+    
+        // Broadcast game state to all in room
         io.to(room).emit("gameState", {
             fen: roomData.game.fen(),
             turn: roomData.game.turn(),

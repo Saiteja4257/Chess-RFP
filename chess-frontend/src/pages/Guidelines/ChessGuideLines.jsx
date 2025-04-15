@@ -7,6 +7,7 @@ const ChessGuidelines = () => {
     <div className="p">
       <div className="background-container">
         <div className="glass-card">
+        
           <h1 className="main-heading">♟️ Chess Game Guidelines</h1>
           <div className="btn-container">
             <Link to="/chs" className="full-btn">
@@ -52,6 +53,11 @@ const ChessGuidelines = () => {
               Tournament Rules
             </Link>
           </div>
+          <div className="bt">
+          <Link to="/dashboard" className="go-btn">
+              Go back
+            </Link>
+            </div>
         </div>
       </div>
     </div>

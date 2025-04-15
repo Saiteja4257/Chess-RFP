@@ -95,7 +95,7 @@
     transform: translateX(0);
   }
 }
-.button-wrapper {
+.button-wrapper1 {
   /* display: flex;
   justify-content: flex-end; */
   width: 100%;
@@ -118,12 +118,11 @@
 .tback-btn {
   padding:17px;
   background-color: #e53935;
-  color: white;
-    
+  color: white; 
   border: none;
   border-radius: 8px;
-  font-size:15px;
-  font-weight: 400;
+  font-size:12px;
+  font-weight: 700;
   cursor: pointer;
   text-decoration: none;
   transition:all 0.3s ease;

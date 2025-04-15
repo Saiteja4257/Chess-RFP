@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/Profile.css"; // Link to external CSS file
 
 const Profile = () => {
+    const navigate=useNavigate();
     const username = localStorage.getItem("username");
     const userId = localStorage.getItem("userId");
 
@@ -70,6 +73,12 @@ const Profile = () => {
                     <p><span className="profile-stat-label">Matches Won:</span> {stats.matchesWon}</p>
                     <p><span className="profile-stat-label">Matches Lost:</span> {stats.matchesLost}</p>
                 </div>
+                <div className="bt">
+                          <button onClick={()=> navigate("/login")}className="pgo-btn">
+                             Logout
+                            </button>
+                            <button className="pgo-btn"  onClick={()=> navigate("/dashboard")}>Dashboard</button>
+                            </div>
             </div>
         </div>
     );

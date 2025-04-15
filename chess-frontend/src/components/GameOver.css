@@ -1,0 +1,122 @@
+/* Common Game Over Page Styles */
+.game-over-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1f1d1b, #2d2a28); 
+    height: 100vh;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  /* Winner Background (Bright & Celebratory) */
+  .winner-bg {
+    background: linear-gradient(135deg, #1f1d1b, #2d2a28); 
+  }
+  
+  /* Loser Background (Dark & Dramatic) */
+  .loser-bg {
+    background: linear-gradient(135deg, #1f1d1b, #2d2a28); 
+  }
+  
+  /* Game Over Card */
+  .game-over-card {
+    width: 450px;
+    padding: 30px;
+    background: linear-gradient(135deg, #383532, #2d2a28); 
+    border-radius: 15px;
+    box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.15),
+              0 12px 24px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Title Animation */
+  .game-over-title {
+    font-size: 3em;
+    font-weight: bold;
+    color: #88d46c;
+    margin-bottom: 10px;
+    text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    animation: glow 1.5s infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    }
+    to {
+      text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9);
+    }
+  }
+  
+  /* Winning Text */
+  .winner-text {
+    font-size: 2em;
+    color: #f8d210;
+    font-weight: bold;
+    animation: bounce 1s infinite alternate;
+  }
+  
+  @keyframes bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Losing Text */
+  .loser-text {
+    font-size: 2em;
+    color: #5415e6;
+    font-weight: bold;
+    animation: shake 0.5s infinite alternate;
+  }
+  
+  @keyframes shake {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(5px);
+    }
+  }
+  
+  /* Game Over Button */
+  .game-over-button {
+    background-color: #4f46e5;
+    color: white;
+    padding: 0.8em 2em;
+    font-size: 1.1em;
+    border: none;
+    margin-top: 50px;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.15),
+                0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  .game-over-button:hover {
+    transform: scale(1.06);
+    /* box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4); */
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -8,7 +8,8 @@ import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Chat from "./pages/Chat.jsx";
 import Chat2 from "./pages/Chat2.jsx";
-import Profile from "./pages/Profile.jsx"
+import Profile from "./pages/Profile.jsx";
+import ChessAi from "./components/ChessAi.jsx";
 // import ProfileAvatar from "./pages/ProfileAvatar.jsx";
 import ChessGuidelines from "./pages/Guidelines/ChessGuideLines";
 
@@ -54,6 +55,7 @@ function App() {
                     <Route path="/chat" element={<Chat />} />
                     <Route path="/Chat2" element={<Chat2 />} />
                     <Route path="/game" element={<Game />} />
+                    <Route path="/chessAi" element={<ChessAi />} />
                     <Route path="/profile" 
                     element={<Profile/>}/>
                     
@@ -100,7 +102,6 @@ const HomePage = () => {
     const handleStart = () => {
         navigate("/register");
     };
-
     return (
         <div className="landing-page">
         <div className="landing-content">
