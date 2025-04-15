@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Chess } from "chess.js";
 import { Chessboard } from "react-chessboard";
@@ -6,17 +6,17 @@ import "../styles/ChessAi.css";
 import Sidebar from "../pages/Sidebar";
 
 const ChessAI = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const game = useRef(new Chess());
   const [position, setPosition] = useState("start");
   const [status, setStatus] = useState("");
   const [gameStarted, setGameStarted] = useState(false);
-const [gameStopped, setGameStopped] = useState(false);
+  const [gameStopped, setGameStopped] = useState(false);
   const aiDepth = 2;
 
   useEffect(() => {
-          window.scrollTo({ top: 0, behavior: "auto" });
-      }, []);
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
 
   const evaluateBoard = (board) => {
     let total = 0;
@@ -33,7 +33,6 @@ const [gameStopped, setGameStopped] = useState(false);
   };
 
   const minimax = (gameInstance, depth, alpha, beta, isMaximizing) => {
-    // ✅ Use correct function for game over
     if (depth === 0 || gameInstance.isGameOver()) {
       return -evaluateBoard(gameInstance.board());
     }
@@ -81,11 +80,11 @@ const [gameStopped, setGameStopped] = useState(false);
     return bestMove;
   };
 
-  const updateStatus = () => {
+  const updateStatus = useCallback(() => {
     const moveColor = game.current.turn() === "b" ? "Black" : "White";
-  
+
     if (game.current.isCheckmate()) {
-      const winner = moveColor === "White" ? "Black" : "White"; // the player who made the checkmate
+      const winner = moveColor === "White" ? "Black" : "White";
       setStatus(`Game over, ${moveColor} is in checkmate.`);
       navigate(`/game-over?winner=${winner}`);
     } else if (game.current.isDraw()) {
@@ -98,7 +97,7 @@ const [gameStopped, setGameStopped] = useState(false);
       }
       setStatus(newStatus);
     }
-  };
+  }, [navigate]);
 
   const makeAIMove = () => {
     const bestMove = getBestMove(game.current, aiDepth);
@@ -111,86 +110,93 @@ const [gameStopped, setGameStopped] = useState(false);
 
   const onDrop = (sourceSquare, targetSquare) => {
     if (!gameStarted || gameStopped) return false;
-  
+
     const moves = game.current.moves({ verbose: true });
     const move = moves.find(
       (m) => m.from === sourceSquare && m.to === targetSquare
     );
-  
+
     if (!move) return false;
-  
+
     const moveObj = {
       from: sourceSquare,
       to: targetSquare,
       ...(move.promotion ? { promotion: "q" } : {}),
     };
-  
+
     const result = game.current.move(moveObj);
     if (result === null) return false;
-  
+
     setPosition(game.current.fen());
     updateStatus();
-  
+
     setTimeout(() => {
       if (!gameStopped) makeAIMove();
     }, 300);
-  
+
     return true;
   };
 
   useEffect(() => {
     updateStatus();
-  }, []);
+  }, [updateStatus]);
 
   return (
-    <div className="chessboard-container" >
-        <Sidebar/>
-    <div className="chessboard-wrapper">
-      <Chessboard position={position} onPieceDrop={onDrop} boardWidth={500} 
-      customBoardStyle={{
-        borderRadius: "1.5em",
-        overflow: "hidden",
-        boxShadow: `
-         inset 0 -4px 0 rgba(0, 0, 0, 0.15),
-0 8px 20px rgba(7, 7, 7, 0.4)
-        `,
-        transition: "transform 0.3s ease, box-shadow 0.3s ease",
-      }}
-      customDarkSquareStyle={{
-        backgroundColor: "#769656",
-      }}
-      customLightSquareStyle={{
-        backgroundColor: "#eeeed2",
-      }}/>
+    <div className="chessboard-container">
+      <Sidebar />
+      <div className="chessboard-wrapper">
+        <Chessboard
+          position={position}
+          onPieceDrop={onDrop}
+          boardWidth={500}
+          customBoardStyle={{
+            borderRadius: "1.5em",
+            overflow: "hidden",
+            boxShadow: `
+              inset 0 -4px 0 rgba(0, 0, 0, 0.15),
+              0 8px 20px rgba(7, 7, 7, 0.4)
+            `,
+            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          }}
+          customDarkSquareStyle={{
+            backgroundColor: "#769656",
+          }}
+          customLightSquareStyle={{
+            backgroundColor: "#eeeed2",
+          }}
+        />
       </div>
       <div className="aIright-section">
-      <div className="status-text">{status}</div>
-      <div className="button-group">
-  {!gameStarted ? (
-    <button onClick={() => { setGameStarted(true); setGameStopped(false); }}>
-      Play
-    </button>
-  ) : (
-    <button onClick={() => setGameStopped(!gameStopped)}>
-      {gameStopped ? "Resume" : "Stop"}
-    </button>
-  )}
-  <button
-    onClick={() => {
-      const newGame = new Chess();
-      game.current = newGame;
-      setPosition("start");
-      setGameStarted(false);
-      setGameStopped(false);
-      updateStatus();
-    }}
-  >
-    Reset
-  </button>
-</div>
-    
-    </div>
-
+        <div className="status-text">{status}</div>
+        <div className="button-group">
+          {!gameStarted ? (
+            <button
+              onClick={() => {
+                setGameStarted(true);
+                setGameStopped(false);
+              }}
+            >
+              Play
+            </button>
+          ) : (
+            <button onClick={() => setGameStopped(!gameStopped)}>
+              {gameStopped ? "Resume" : "Stop"}
+            </button>
+          )}
+          <button
+            onClick={() => {
+              const newGame = new Chess();
+              game.current = newGame;
+              setPosition("start");
+              setGameStarted(false);
+              setGameStopped(false);
+              updateStatus();
+            }}
+          >
+            Reset
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

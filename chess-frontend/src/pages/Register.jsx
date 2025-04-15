@@ -43,7 +43,7 @@ const Register = () => {
             </form><br></br>
             <p className="register-footer" >Already registered? <Link to="/login" className="register-link" >Login here</Link></p>
             </div>
-            <img className="rck" src="/ChessKing2.png" alt="Image"></img>
+            <img className="rck" src="/ChessKing2.png" alt=""></img>
         </div>
     );
 };

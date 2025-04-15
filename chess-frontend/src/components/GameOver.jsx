@@ -19,7 +19,7 @@ const GameOver = () => {
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [setWindowSize]);
 
   return (
     <div className={`game-over-container ${winner ? "winner-bg" : "loser-bg"}`}>

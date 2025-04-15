@@ -14,7 +14,7 @@ const Dashboard = () => {
       
         <div className="dashboard-container">
 
-          <img  className="chessimage" src="https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png"></img>
+          <img className="chessimage" src="https://www.chess.com/bundles/web/images/offline-play/standardboard.1d6f9426.png" alt=""></img>
         <div className="dashboard-card">
           <h2 className="dashboard-welcome">Welcome Back! 🎉</h2>
           <p className="dashboard-message">
